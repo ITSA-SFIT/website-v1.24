@@ -85,7 +85,6 @@ main {
   opacity: 0;
 }
 
-
 /* Loading */
 #loading {
   height: 100dvh;
@@ -210,11 +209,43 @@ section.section {
   height: 3px;
 }
 .about-us-info img {
+  position: relative;
   width: 100%;
-  border-radius: 20px;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.48);
-  border: 1.5px solid rgba(255, 255, 255, 0.85);
 }
+#team-photo {
+  position: relative;
+  padding: 1.5rem;
+  border: solid 2px;
+  border-image: linear-gradient(-120deg,  transparent 60%, rgb(228, 228, 228) 40%) 1 ;
+
+}
+/* #team-photo::before {
+  content: "";
+  position: absolute;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  left: 0;
+  top: 0;
+  z-index: 0;
+  transform: translate(2px, 2px);
+  background-color: #000000;
+}
+#team-photo::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+    -120deg,
+    rgba(0, 0, 0, 0.7) 40%,
+    white 40%
+  );
+} */
+
 .about-us-info div.title {
   font-family: var(--monospace);
   letter-spacing: 2px;
@@ -285,7 +316,7 @@ section.section {
   position: relative;
 }
 .carousel-container img {
-  width:100%;
+  width: 100%;
 }
 .carousel-container .carousel-info h3 {
   margin-top: 0.8rem;
@@ -441,11 +472,10 @@ section.section {
 #team .team-division.logistic .team-img-container div {
   background-image: linear-gradient(
     135deg,
-    rgba(155, 6, 6, 0.664), 
+    rgba(155, 6, 6, 0.664),
     rgba(255, 68, 0, 0.701)
   );
 }
-
 
 /* documentation */
 #team .team-division.documentation .team-img-container div {
@@ -455,7 +485,6 @@ section.section {
     rgba(232, 10, 114, 0.6)
   );
 }
-
 
 /* Contact */
 #contact {
@@ -483,11 +512,12 @@ section.section {
   font-size: 1.1rem;
   margin: 1rem 0;
 }
-#contact p{
+#contact p {
   letter-spacing: 2px;
   font-size: 0.9rem;
 }
-#contact .copyright p, #contact .acknowledgement p {
+#contact .copyright p,
+#contact .acknowledgement p {
   display: inline;
   font-size: 0.9rem;
   color: rgb(206, 206, 206);
@@ -526,20 +556,19 @@ section.section {
   justify-content: space-between;
 }
 
-#contact .contact-details .mailid{
+#contact .contact-details .mailid {
   color: var(--anchor);
   font-size: 1.1rem;
 }
-#contact .contact-details .mailid:hover{
+#contact .contact-details .mailid:hover {
   color: var(--anchor-hover);
 }
-#embeded-map{
+#embeded-map {
   width: 100%;
   height: 100%;
 }
 
-
-#contact .about-itsa-footer h4{
+#contact .about-itsa-footer h4 {
   text-align: center;
 }
 #contact .about-itsa-footer p {
@@ -554,7 +583,6 @@ section.section {
 }
 #contact .social-links a {
   color: var(--anchor);
- 
 }
 #contact .social-links a:hover {
   color: var(--anchor-hover);
@@ -583,7 +611,10 @@ section.section {
   .carousel-control-next {
     display: none;
   }
-  #team .team-division:not(.core) .member-container.row:nth-child(2n) .team-member.col-12:first-child {
+  #team
+    .team-division:not(.core)
+    .member-container.row:nth-child(2n)
+    .team-member.col-12:first-child {
     order: 2;
   }
 }
