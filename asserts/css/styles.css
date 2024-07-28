@@ -4,7 +4,7 @@
   --black: #000000;
   --light-white: #ffffffb5;
   --anchor: rgb(238, 212, 212);
-  --anchor-hover: color: rgb(150, 203, 156);
+  --anchor-hover: rgb(150, 203, 156);
 
   /* Fonts */
   --cursive1: "Kalam", cursive;
@@ -18,6 +18,7 @@
 body {
   position: relative;
   color: rgb(233 233 233);
+  background-color: rgb(44, 39, 39);
   scroll-behavior: smooth;
 }
 p {
@@ -45,11 +46,12 @@ a {
   text-decoration: none;
 }
 #home {
-  height: 100vh;
+  height: 100dvh;
   background-image: linear-gradient(90deg, transparent, var(--red));
   /* background-image: linear-gradient(90deg, var(--red)20%, rgba(0, 0, 255, 0.626)); */
   /* background-image: linear-gradient(90deg, rgba(60, 0, 100, 0.7), rgba(0, 0, 165, 0.709), rgba(0, 217, 255, 0.727), rgba(0, 255, 4, 0.661),rgba(255, 255, 0, 0.696), rgba(255, 166, 0, 0.713), var(--red)); */
 }
+
 nav {
   padding-left: 2.5rem !important;
   padding-right: 2.5rem !important;
@@ -63,13 +65,6 @@ nav {
   -webkit-backdrop-filter: blur(3.5px);
   /* border: 1px solid rgba(255, 169, 169, 0.85); */
 }
-.rainbow-neon {
-  font-size: 5rem;
-  background-image: linear-gradient(45deg, #f3626b, #6181ff, #a25bf2, #ffc100);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: rainbow-keyframe 3s linear infinite;
-}
 @keyframes rainbow-keyframe {
   0% {
     filter: hue-rotate(0deg);
@@ -78,6 +73,62 @@ nav {
     filter: hue-rotate(360deg);
   }
 }
+main {
+  opacity: 1;
+  transition: linear 1s;
+}
+
+.inactive {
+  display: none;
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+}
+
+
+/* Loading */
+#loading {
+  height: 100dvh;
+  width: 100%;
+  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  /* background-image: linear-gradient(90deg, transparent, var(--red)); */
+}
+
+.line {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.572);
+  border: 2px solid rgba(255, 255, 255, 0.552);
+  margin: 0 10px;
+}
+.load-3 .line:nth-last-child(1) {
+  animation: loadingC 0.7s 0.1s ease-in-out infinite;
+}
+.load-3 .line:nth-last-child(2) {
+  animation: loadingC 0.7s 0.2s ease-in-out infinite;
+}
+.load-3 .line:nth-last-child(3) {
+  animation: loadingC 0.7s 0.3s ease-in-out infinite;
+}
+@keyframes loadingC {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 35px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
 .brand-icon {
   width: 40px;
   margin-bottom: 2px;
@@ -101,7 +152,7 @@ nav {
   z-index: -1000;
   position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background-color: black;
 }
 #background-gif img {
