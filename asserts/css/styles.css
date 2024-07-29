@@ -282,6 +282,9 @@ section.section {
   /* color: #ff0000; */
   transition: linear 0.2s;
 }
+#about .more-info-container li {
+  margin: 0.5rem 0;
+}
 #about .more-info-container {
   padding: 1rem;
   color: rgb(206, 206, 206);
@@ -304,6 +307,13 @@ section.section {
 #about .more-info-container:hover > h3 {
   color: #ff0000;
 }
+
+
+#about {
+  padding-bottom: 0;
+}
+
+
 
 #events {
   background-image: linear-gradient(90deg, transparent, var(--red));
