@@ -354,7 +354,7 @@ section.section {
   box-shadow: 2px 2px rgba(0, 0, 0, 0.48);
   border: 1.5px solid rgba(255, 255, 255, 0.85);
 }
-.carousel-container-rel:hover > .carousel-info div {
+/* .carousel-container-rel:hover > .carousel-info div {
   display: block;
 }
 .carousel-container-rel:hover > .carousel-info {
@@ -364,7 +364,7 @@ section.section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 
 /* Team */
 #team .team-division {
