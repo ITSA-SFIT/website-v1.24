@@ -2,3 +2,4 @@ v1.24.01 - INITIAL COMMIT: updated the team members, optimized the particles.js 
 v1.24.02 - MISSION, VISION CHANGE: changes SFIT mission and vission to departmental vision, Abhishekh name typo fix, footer paragraph typo fix
 v1.24.03 - ETHICS REG. FORM: add a new route that redirects to the Ethics Seminar Registration From
 v1.24.04 - ADD EVENTS, UPDATE TEAM, REMOVE ETHICS REG.: add events (Ethics and E-Waste). Add new team member (Dhruvi) in Operations. Remove the redirect to Registration form for Ethics Seminar.
+v1.24.05 - ADD ITSA Email HEADER: (./asserts/images/ITSA-header-transparent.png) NEVER DELETE IT. Add header image for all ITSA emails.
