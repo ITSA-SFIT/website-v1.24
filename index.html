@@ -44,6 +44,91 @@
 </head>
 
 <body>
+  <div class="popup" id="popup">
+    <img src="./asserts/images/poster.jpg" alt="F1 Racing">
+    <button onclick="startNitro()">Register Now</button>
+  </div>
+
+  <canvas id="nitroCanvas"></canvas>
+
+  <script>
+    const canvas = document.getElementById('nitroCanvas');
+    const ctx = canvas.getContext('2d');
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class SpeedLine {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.length = Math.random() * 30 + 20;
+        this.speed = Math.random() * 200 + 200;
+        this.alpha = 1;
+      }
+      update(dt) {
+        this.x -= this.speed * dt; // Move from right to left
+        this.alpha -= dt * 0.7;
+      }
+      draw(ctx) {
+        ctx.save();
+        ctx.globalAlpha = Math.max(this.alpha, 0);
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x - this.length, this.y); // Draw line to the left
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    let speedLines = [];
+    let running = false;
+    let lastTime = 0;
+
+    function animateNitro(timestamp) {
+      if (!lastTime) lastTime = timestamp;
+      const dt = (timestamp - lastTime) / 1000;
+      lastTime = timestamp;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = speedLines.length - 1; i >= 0; i--) {
+        let line = speedLines[i];
+        line.update(dt);
+        line.draw(ctx);
+        if (line.alpha <= 0 || line.x < 0) {
+          speedLines.splice(i, 1);
+        }
+      }
+
+      for (let i = 0; i < 20; i++) {
+        speedLines.push(new SpeedLine());
+      }
+      if (running) {
+        requestAnimationFrame(animateNitro);
+      }
+    }
+
+    function startNitro() {
+      document.getElementById('popup').style.display = 'none';
+      running = true;
+      lastTime = 0;
+      requestAnimationFrame(animateNitro);
+      setTimeout(() => {
+        running = false;
+        window.location.href = "https://itsa.sfit.ac.in/";
+      }, 1500);
+    }
+  </script
+
+
   <!-- Particles -->
   <div id="particles-js"></div>
   <main class="inactive" id="main">
@@ -52,6 +137,7 @@
       </div> -->
 
     <!-- Front Page -->
+     
     <section id="home">
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid">
@@ -90,6 +176,7 @@
         <img class="logo" src="./asserts/images/itsa-logo.png" alt="itsa-logo" />
       </div>
     </section>
+    
 
     <!-- About Us -->
     <section id="about" class="section">

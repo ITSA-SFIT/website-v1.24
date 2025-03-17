@@ -5,9 +5,22 @@ $("#year").text(year);
 window.addEventListener("load", () => {
   const main = document.getElementById("main");
   const loader = document.getElementById("loading");
+  const popup = document.getElementById("popup");
+  const registerBtn = document.getElementById("register-btn");
+
   main.classList.toggle("inactive");
   loader.classList.toggle("inactive");
   loader.remove();
+
+  // Hide the popup after 3 seconds
+  setTimeout(() => {
+      popup.style.display = "none";
+  }, 6000); // Adjust time if needed
+
+  // Redirect when Register Now button is clicked
+  registerBtn.addEventListener("click", () => {
+      window.location.href = "register.html"; // Change to your registration page
+  });
 });
 
 particlesJS("particles-js", {
